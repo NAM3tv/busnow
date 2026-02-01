@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bus Now</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="mapStyle.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="mobileStyleApp.css">
+  <link rel="icon" href="/img/busNowFlaticon.png" sizes="512x512" type="image/png">
+  <!--Start of Tawk.to Script-->
+<!--
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/67aeff793a842732607eacd1/1ik1pbsi0';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script> -->
+  <!--End of Tawk.to Script-->
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    #map { height: 100%; width: 100%; }
+    .controls {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    button { padding: 10px; font-size: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="loadingScreen">
+    <img src="img/busNowBirdWhite.svg" alt="" id="birdLoading">
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+    </div>
+    <img src="img/busNowText.svg" alt="" id="textLoading">
+  </div>
+    <div class="popUpController">
+        <div class="popUpControllerHeader">
+            <img src="/img/busNowLogo.svg" alt="" id="logoController">
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" id="closeController">
+                <line x1="5" y1="5" x2="35" y2="35" stroke="black" stroke-width="4" stroke-linecap="round"/>
+                <line x1="35" y1="5" x2="5" y2="35" stroke="black" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="popUpControllerContainer searchPopUpController">
+          <div id="searchBar">
+            <img src="/img/searchIcon.svg" alt="">
+            <input type="text" placeholder="Search...">
+          </div>
+          <div class="busSearchResults">
+            <div class="busSearchContainer">
+              <img src="/img/busNow3d.png" alt="">
+              <div class="busSearchInfos">
+                <p>LINE 500</p>
+                <div class="searchBtnsContainer">
+                  <div class="searchBtn positionBtn">Position</div>
+                  <div class="searchBtn buyBtn" id="buyTicketsSearchBtn">Buy</div>
+                </div>
+              </div>
+            </div>
+          <!---  <div class="busSearchContainer">
+              <img src="/img/busNow3d.png" alt="">
+              <div class="busSearchInfos">
+                <p>LINE 450</p>
+                <div class="searchBtnsContainer">
+                  <div class="searchBtn positionBtn" id="positionBtn1">Position</div>
+                  <div class="searchBtn buyBtn" id="buyTicketsSearchBtn">Buy</div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <div id="ticketsPopUpController" class="popUpControllerContainer">
+          <span class="titleDashBoard"><img src="/img/ticketsIcon.svg" alt=""><h1>Tickets</h1></span>
+          <div class="TicketContainer">
+            <div class="ticketIconBusControllerContainer">
+              <img src="/img/ticketsIcon.svg" alt="">
+            </div>
+            <div class="ticketInfos">
+              <div class="headerTicket">
+                <img src="/img/busIcon.svg" alt="">
+                <p id="lineTicket">515</p>
+                <p id="dateTicket"> 20/01/2025</p>
+              </div>
+            </div>
+          </div>
+          <div class="TicketContainer">
+            <div class="ticketIconBusControllerContainer">
+              <img src="/img/ticketsIcon.svg" alt="">
+            </div>
+            <div class="ticketInfos">
+              <div class="headerTicket">
+                <img src="/img/busIcon.svg" alt="">
+                <p id="lineTicket">450</p>
+                <p id="dateTicket"> 15/08/2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="recentRidesPopUpController" class="popUpControllerContainer">
+          <span class="titleDashBoard"><img src="/img/recentIcon.svg" alt=""><h1>Recent Rides</h1></span>
+          <div class="TicketContainer">
+            <div class="ticketIconBusControllerContainer">
+              <img src="/img/busIcon.svg" alt="" style="margin: 0;">
+            </div>
+            <div class="ticketInfos">
+              <div class="headerTicket">
+                <p id="lineTicket" style="margin-left: 0%;">515</p>
+                <p id="dateTicket" style="font-weight: bolder; margin-left: 70%;"> 5,00€</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="AIPopUpController" class="popUpControllerContainer">
+          <span class="titleDashBoard"><img src="/img/aiIcon.svg" alt=""><h1>AI Assistant</h1></span>
+          <div class="chatContainer">
+            <div class="messagesContainer"></div>
+            <textarea name="" id="aiTextArea" placeholder="Ask the Ai ..."></textarea>
+          </div>
+        </div>
+        <div id="profile" class="popUpControllerContainer"> 
+          <span class="titleDashBoard"><img src="/img/profileIcon.svg" alt=""><h1>Profile</h1></span>
+          <div class="profileheaderContainer">
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+            <div class="hederContainer">
+              <img src="/img/vigno.webp" alt="" id="profilePicture">
+              <p id="profileName">Cristiano Vignotto</p>
+            </div>
+          </div>
+          <div class="buttonsContainer">
+            <div class="profileDiv">
+              <img src="/img/subscriptionIcon.svg" alt="">
+              <p>Subscriptions</p>
+            </div>
+            <div class="profileDiv">
+              <img src="/img/cardsIcon.svg" alt="">
+              <p>Card Managemant</p>
+            </div>
+            <div class="profileDiv">
+              <img src="/img/logOutImg.svg" alt="">
+              <p style="color:red;">LogOut</p>
+            </div>
+            <div class="profileDiv" style="background-color: #f3f3f3;">
+              <img src="/img/binIcon.svg" alt="" style="opacity:0.7;">
+              <p style="color:red; opacity:0.7;">Delete Account</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="mapContainer">
+
+
+        <button id="Search" class="btn">
+            <img src="/img/searchIcon.svg" alt="">
+            <p>Search</p>
+        </button>
+        <button class="btn" id="Tickets">
+          <img src="/img/ticketsIcon.svg" alt="">
+          <p>Tickets</p>
+        </button>
+        <button class="btn" id="recentRides">
+          <img src="/img/recentIcon.svg" alt="">
+          <p>Recent Rides</p>
+        </button>
+        <button class="btn" id="ai">
+          <img src="/img/aiIcon.svg" alt="">
+          <p>AI Assistant</p>
+        </button>
+        <button class="btn" id="Profile">
+          <img src="/img/profileIcon.svg" alt="">
+          <p>Profile</p>
+        </button>
+
+        <div class="busBoard">
+          <img src="/img/busNow3d.png" alt="">
+          <div class="busBoardInfoContainer">
+            <h1 id="Line"> LINE 500</h1>
+            <div class="metricsContainer">
+              <p id="timeP" class="metricsDistance"><span id="time"> 5 </span> Min</p>
+              <p id="distance" class="metricsDistance">18km</p>
+            </div>
+          </div>
+          <div class="buttonsBusBoard">
+            <button class="busBoardBtn" id="buyTicket">BUY TICKET</button>
+            <button class="busBoardBtn" id="closeBusBoard">CLOSE</button>
+          </div>
+          <div id="closeBtnMobile">
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" id="closeController">
+              <line x1="5" y1="5" x2="35" y2="35" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <line x1="35" y1="5" x2="5" y2="35" stroke="white" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div id="buyBtnMobile">
+            <img src="/img/cartIcon.svg" alt="">
+          </div>
+        </div>
+        <div id="map"></div>
+    </div>
+    <div class="header">
+        <div class="search"></div>
+    </div>
+
+
+    <!-- PopUps-->
+     <div class="ticketPopUp">
+      <div class="circleTicket"></div>
+      <div class="cirlceTicket2"></div>
+      <div class="ticket">
+          <p style="margin: 0; margin-top: 10%;">Date</p>
+          <h1 id="ticketDate">26/07/2024</h1>
+          <div class="ticketHeader">
+            <span><p>Latisana</p><img src="/img/rootIcon.svg" alt=""><p>Lignano</p></span>
+            <div class="ticketPrice">
+              <p>Price:</p>
+              <p id="priceTicketPopUp">5,00€</p>
+            </div>
+          </div>
+          <img src="/img/bqfVga_qrcode.png" alt="" style="width: 70%; margin-bottom: 2%;" id="qrTicket">
+          <button class="closeTicketButton">CLOSE</button>
+        </div>
+        
+     </div>
+ <!-- <div class="controls">
+    <button onclick="calcolaPercorso()">Calcola percorso</button>
+  </div> -->
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+  <script src="script.js"></script> 
+<!--  <script src="mapScriptUpDate.js"></script> -->
+  <script src="effects.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>

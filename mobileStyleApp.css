@@ -1,0 +1,242 @@
+@media screen and (max-width: 768px) {
+.btn{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    top: 90dvh;
+}
+.btn img{
+    width: 100%;
+}
+.btn p{
+    display: none;
+}
+.mapContainer{
+  /*  width: 100%;*/
+  height: 100dvh;
+    border-radius: 0;
+    margin: 0;
+}
+#recentRides{
+    width: 10vw;
+    height: 10vw;
+}
+#Search{
+    width: 20%;
+    border-radius: 20px;
+}
+#Search p{
+    display: block;
+    font-size: 12px;
+}
+#Search img{
+    width: 30%;
+}
+#Tickets{
+    left: 28%;
+}
+#recentRides{
+    left: 41%;
+}
+#recentRides img{
+    width: 100%;
+}
+#ai{
+    width: 10vw;
+    height: 10vw;
+    left: 53%;
+}
+#ai img{
+    width: 100%;
+}
+#Profile{
+    left: 65%;
+}
+.popUpController{
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 90%;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    top: 10%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Ombra molto delicata */
+}
+@keyframes expandWidth {
+    from {
+        top: 100%;
+    }
+    to {
+        top: 10%;
+    }
+}
+@keyframes collapseWidth {
+    from {
+        top: 10%;
+    }
+    to {
+        top: 100%;
+    }
+}
+.busSearchResults img{
+    width: 34%;
+}
+.busSearchInfos p{
+    font-size: 20px;
+}
+.searchBtnsContainer{
+    margin-top: 5%;
+}
+.titleDashBoard img{
+    width: 26px;
+}
+.titleDashBoard p{
+    font-size: 22px;
+}
+.ticketIconBusControllerContainer{
+    width: 44px;
+    height: 44px;
+}
+#lineTicket{
+    font-size: 18px;
+}
+.busBoard{
+    width: 90%;
+    height: 12%;
+    margin-left: 5.5%;
+    top: 86dvh;
+}
+.busBoard img{
+    width: 22%;
+    margin-left: 3%;
+}
+#Line{
+    width: 100%;
+    font-size: 20px;
+    margin-left: 15px;
+}
+.metricsDistance{
+    font-size: 16px;
+}
+.buttonsBusBoard{
+    display: none;
+}
+.busBoardInfoContainer{
+    flex-direction: column;
+    justify-content: center;
+    align-items: normal;
+}
+.metricsContainer{
+    height: auto;
+    width: 100%;
+    justify-content: normal;
+    align-items: normal;
+    display: flex;
+}
+#timeP{
+    border: none;
+    text-align: left;
+    width: auto;
+    margin-left: 15px;
+}
+#distance{
+    text-align: left;
+    margin: 0;
+    width: auto;
+}
+#closeBtnMobile{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(206, 29, 29);
+    border-radius: 50%;
+    color: white;
+    padding: 5px;
+    height: 32px;
+    width: 32px;
+    left: 84%;
+}
+#closeBtnMobile svg{
+    width: 90%;
+}
+#buyBtnMobile{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2985e1;
+    border-radius: 50%;
+    color: white;
+    padding: 5px;
+    height: 32px;
+    width: 32px;
+    left: 69%;
+}
+#buyBtnMobile img{
+    transform: scaleX(1);
+    margin: 0;
+    width: 85%;
+    margin-right: 5%;
+}
+#birdLoading{
+    margin-top: 40dvh;
+    width: 100px;
+}
+.loading-container{
+    margin-top: 10%;
+}
+#textLoading{
+    margin-top: 25%;
+    width: 250px;
+}
+.circle{
+    top: 22%;
+}
+#profilePicture{
+    width: 15vh;
+}
+.buttonsContainer{
+    margin-top: 30px;
+}
+.buttonsContainer img{
+    width: 24px;
+}
+.profileDiv{
+    margin-top: 12px;
+}
+.ticket{
+    width: 90%;
+}
+.closeTicketButton{
+    width: 100px;
+}
+.circleTicket{
+    width: 60px;
+    height: 60px;
+}
+.cirlceTicket2{
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+}
+#qrTicket{
+    margin-top: 50px;
+}
+.ticketHeader{
+    margin-top: 10px;
+}
+#priceTicketPopUp{
+    font-size: 16px;
+}
+.popUpControllerHeader{
+    margin-top: 10px;
+}
+.messagesContainer{
+    height:350px;
+    scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+}

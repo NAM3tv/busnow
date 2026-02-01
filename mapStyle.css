@@ -1,0 +1,819 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    display: flex;
+    background-color: #2985e1;
+}
+.loadingScreen{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    background-color: #2985e1;
+    z-index: 15;
+}
+.loadingScreen img{
+    width: 10%;
+}
+#birdLoading{
+    width: 10%;
+    margin-top: 20%;
+}
+#textLoading{
+    width: 20%;
+}
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+    margin-top: 2%;
+    margin-bottom: 13%;
+}
+
+.loading-spinner {
+    width: 40px; /* Diametro del cerchio */
+    height: 40px;
+    border: 4px solid #ffffff; /* Colore dello sfondo del cerchio */
+    border-top: 4px solid #000000; /* Colore della parte animata */
+    border-radius: 50%; /* Per renderlo un cerchio */
+    animation: spin 1s infinite linear; /* Animazione */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); /* Inizia da 0 gradi */
+    }
+    100% {
+        transform: rotate(360deg); /* Ruota di 360 gradi */
+    }
+}
+.popUpController{
+    width: 30%;
+    margin: 0.5%;
+    height: 98vh; 
+    background-color: white;
+    border-radius: 20px;
+    display: none;
+    overflow: hidden;
+    animation: expandWidth 0.5s ease-out;
+}
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 30%;
+    }
+}
+.mapContainer{
+    position: relative;
+    height: 98vh; 
+    width: 100%;
+    margin: 0.5%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+#map{
+    width: 100%;
+    z-index: 1;
+}
+.btn{
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    color: #2985e1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    width: 8%;
+    height: 5%;
+    margin-top: 1%;
+    font-weight: 550;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Ombra molto delicata */
+}
+.btn p{
+    font-size: clamp(0.5vw, 2vw, 1vw); /* Minimo 10px, massimo 20px */
+    word-wrap: break-word; /* Impedisce overflow del testo */
+}
+#Search{
+    left: 5%;
+}
+.btn img{
+    width: 22%;
+    margin: 0;
+    margin-right: 8%;
+}
+#Search p{
+    margin: 0;
+}
+#closeController{
+    width: 25px;
+    height:25px;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+    width: 0;
+}
+/* Animazione per chiudere */
+.closing {
+    width: 30%;
+    animation: collapseWidth 0.5s ease-out forwards;
+}
+#Tickets{
+    left: 13.5%;
+}
+#recentRides{
+    left: 22%;
+    width: 11%;
+}
+#recentRides img{
+    width: 14%;
+}
+#ai{
+    width: 11%;
+    left: 33.5%;
+}
+#ai img{
+    width: 16%;
+}
+#Profile{
+    overflow: hidden;
+    left: 45%;
+}
+@keyframes collapseWidth {
+    from {
+        width: 30%;
+    }
+    to {
+        width: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+.popUpControllerContainer{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.busBoard{
+    position: absolute;
+    display: none;
+    align-items: center;
+    width: 95%;
+    height: 10%;
+    margin-left: 2.5%;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Ombra molto delicata */
+    z-index: 2;
+    top: 87%; 
+}
+.busBoard img{
+    transform: scaleX(-1);
+    margin-left: 1%;
+    width: 6%;
+}
+.busInfo{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.busBoardInfoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 100%;
+}
+.metricsContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65%;
+    height: 100%;
+}
+#Line{
+    font-size: 3vw;
+    margin: 0;
+    margin-left: 2%;
+    color: #2985e1;
+    margin-right: 0%;
+    width: 35%;
+}
+#timeP{
+    margin: 0;
+    margin-left: 0%;
+    width: 50%;
+    text-align: right;
+    color: black;
+    border-right: 2px solid black;
+    padding-right: 2%;
+}
+#distance{
+    width: 50%;
+    text-align: left;
+}
+.metricsDistance{
+    margin-left: 2.5%;
+    font-size: 2.5vw;
+    font-weight: bolder;
+    color: #2985e19a;
+}
+.buttonsBusBoard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 80%;
+    margin-left: 7%;
+    margin-right: 1%;
+}
+#closeBtnMobile{
+    display: none;
+}
+#buyBtnMobile{
+    display: none;
+}
+.busBoardBtn{
+    width: 100%;
+    padding: 5%;
+    margin: 2%;
+    height: 90%;
+    border-radius: 20px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.busBoardBtn p{
+    margin: 0;
+    font-size: 1vw;
+}
+#closeBusBoard{
+    font-size: 1vw;
+}
+#buyTicket{
+    font-size: 1vw;
+    background-color: #2985e1;
+}
+#closeBusBoard{
+    width: 25%;
+}
+
+
+
+/* controller style */
+
+.popUpControllerHeader{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+#logoController{
+    width: 50%;
+    margin-left: 5%;
+    margin-right: 30%;
+}
+#searchBar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    height: 5%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    margin-left: 7%;
+    margin-top: 5%;
+    border: 2px solid #2985e1;
+}
+#searchBar img{
+    width: 8%;
+    margin-left: 0%;
+    margin-right: 3%;
+}
+#searchBar input{
+    width: 75%;
+    height: 80%;
+    border: none;
+}
+#searchBar input:focus {
+    outline: none;
+    border: none;
+}
+/* control stile of leaflet*/
+.leaflet-routing-container{
+    display: none;
+}
+.busSearchResults{
+    width: 100%;
+    height: 100%;
+}
+.busSearchContainer{
+    width: 85%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    margin-top: 5%;
+    margin-left: 7%;
+}
+.busSearchInfos{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5%;
+}
+.busSearchContainer p{
+    color: #2985e1;
+    font-weight: bolder;
+    margin-left: 2%;
+    font-size: 2vw;
+    margin: 0;
+    margin-bottom: 2%;
+}
+.busSearchResults img{
+    transform: scaleX(-1);
+    width: 40%;
+    height: auto;
+    margin-left: 5%;
+}
+.searchBtnsContainer{
+    width: 90%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 1%;
+    color: #2985e1;
+    margin-top: 2%;
+}
+#buyTicketsSearchBtn{
+    background-color: #2985e1;
+    color: white;
+    margin-left: 5%;
+}
+.TicketContainer{
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    width: 85%;
+    height: 10%;
+    margin-left: 7%;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 3%;
+}
+.titleDashBoard{
+    width: 85%;
+    height: 10%;
+    margin-left: 7%;
+    display: flex;
+    align-items: center;
+    color: #2985e1;
+}
+.titleDashBoard img{
+    width: 10%;
+}
+.titleDashBoard h1{
+    margin: 0;
+    margin-left: 3%;
+}
+.ticketIconBusControllerContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3vw;
+    height: 3vw;
+    margin-left: 5%;
+    background-color: white;
+    border-radius: 50%;
+}
+.ticketIconBusControllerContainer img{
+    width: 60%;
+    margin-bottom: 5%;
+}
+.ticketInfos{
+    width: 60%;
+    margin-left: 5%;
+}
+.ticketInfos p{
+    margin: 0;
+}
+.headerTicket{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+#lineTicket{
+    color: #2985e1;
+    font-weight: bolder;
+    font-size: 1.2vw;
+    margin-left: 3%;
+}
+#dateTicket{
+    margin-left: 45%;
+}
+.headerTicket img{
+    width: 15%;
+}
+#priceTicket{
+    font-size: 1.5vw;
+    font-weight: bolder;
+    margin-top: 5%;
+    width: 100%;
+    text-align: center;
+}
+.ticketPopUp{
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #2985e1;
+    overflow: hidden;
+}
+.ticket{
+    position: relative;
+    height: 90%;
+    width: 35%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+.ticket h1{
+    margin: 0;
+}
+.circleTicket{
+    position: absolute;
+    background-color: #2985e1;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    top: 0%;
+    z-index: 2;
+}
+.cirlceTicket2{
+    position: absolute;
+    background-color: #2985e1;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    z-index: 2;
+    top: 89%;
+}
+.ticketHeader{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    margin-top: 0;
+}
+.ticketHeader span{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin-left: 5%;
+    height: 60%;
+}
+.ticketHeader span p{
+    font-weight: bolder;
+}
+.ticketHeader span img{
+    width: 50%;
+    margin: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.ticketPrice{
+    width: 30%;
+    direction: ltr;
+    text-align: right;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.ticketPrice p{
+    margin: 0;
+}
+#priceTicketPopUp{
+    font-size: 1.2vw;
+    margin: 0;
+    font-weight: bolder;
+}
+.closeTicketButton{
+    background-color: #2985e1;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    width: 20%;
+    height: 7%;
+    font-weight: bold;
+}
+.chatContainer{
+    width: 85%;
+    height: 100%;
+    margin-left: 7%;
+}
+.messagesContainer{
+    width: 100%;
+    height: 64%;
+    overflow: auto;
+    position: relative;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+#aiTextArea{
+    width: 90%;
+    height: 10%;
+    margin-bottom: 20px;
+    resize: none;
+    border-radius: 20px;
+    border: none;
+    border: 2px solid #2985e1;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+    padding-bottom: 1%;
+    font-family: 'Roboto', sans-serif;
+}
+.user {
+    background: #0078ff;
+    position: relative;
+    width: auto;
+    max-width: 70%;
+    margin-left: auto;  /* Spinge il div a destra */
+    color: white;
+    text-align: left;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    display: inline-block;  /* Permette al div di adattarsi al testo */
+}
+.bot {
+    background: #e0e0e0;
+    color: black;
+    text-align: left;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    max-width: 70%;
+    display: inline-block;  /* Permette al div di adattarsi al testo */
+}
+.botTicket{
+    background: #e0e0e0;
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    max-width: 70%;
+    display: inline-block;
+    margin-right: auto;  /* Spinge il div a destra */
+}
+.botTicket img{
+    width: 60%;
+    margin: 0;
+}
+.botTicket h3{
+    font-weight: bolder;
+    margin: 0;
+    margin-bottom: 5%;
+    color: #2985e1;
+}
+.botTicket p{
+    font-weight: bolder;
+    margin: 0;
+    margin-bottom: 5%;
+}
+.btnAiTicket{
+    background-color: #2985e1;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    width: 80%;
+}
+.chatContainer textarea:focus{
+    outline: none;
+}
+/* popUp ads style */
+
+.leaflet-popup-content{
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.mySwiper {
+    width: 100% !important;
+    height: 80% !important;
+    margin-top: -5%;
+}
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    height: 100% !important;
+}
+/* Rimuovi i pulsanti di navigazione di default */
+.swiper-button-next, .swiper-button-prev {
+    background: none !important;  /* Rimuove l'immagine di default */
+    border: none !important;      /* Rimuove eventuali bordi */
+    color: transparent !important; /* Rende il colore del testo invisibile */
+    box-shadow: none !important;  /* Rimuove eventuali ombre */
+}
+.footerPopUpAds{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.footerHeader{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    margin-top: 5%;
+    height: 100%;
+}
+.footerHeader p{
+    margin: 0;
+}
+.footerPopUpAds img{
+    width:5%;
+    margin: 0;
+}
+#adsTitle{
+    font-weight: bolder;
+    margin-left: 5%;
+    margin-right: 2%;
+}
+#adsRating{
+    font-weight: 500;
+    margin-left: 2%;
+}
+#typeOfBusiness{
+    margin: 0;
+    text-align: left;
+    margin-left: 5%;
+    color: #2985e19a;
+    margin-bottom: 5%;
+}
+.hotDestinationContainer{
+    width: 100%;
+    color: #fe4b25;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+}
+.hotDestinationContainer p{
+    margin: 0;
+    margin-bottom: 5%;
+}
+.hotDestinationContainer img{
+    width: 8%;
+    margin: 0;
+    margin-right: 2%;
+    margin-left: 38%;
+    margin-bottom: 5%;
+}
+.btnSlider{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profileheaderContainer{
+    width: 100%;
+    height: 30%;
+    position: relative;
+}
+.hederContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: white;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#profilePicture{
+    border-radius: 50%;
+    width: 50%;
+}
+#profileName{
+    font-weight: bolder;
+}
+.circle{
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    z-index: 1;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #0066ff 20%, #00aaff 50%, #66ccff 80%);
+}
+.circle1{
+    width: 100%;
+    height: 100%;
+    top: 15%;
+    left: -10%;
+    z-index: 1;
+}
+.circle2{
+    width: 70%;
+    height: 100%;
+    left: 35%;
+    top: 15%;
+    z-index: 0;
+}
+.buttonsContainer{
+    position: relative;
+    width: 100%;
+    height: 42%;
+    margin-top: 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.profileDiv{
+    border-radius: 20px;
+    cursor: pointer;
+    width: 80%;
+    height: 10%;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    padding: 2.5%;
+}
+.profileDiv:hover{
+    background-color: #f3f3f3;
+}
+.profileDiv img{
+    width: 12%;
+    margin-right: 5%;
+}
+.profileImgMap{
+    border-radius: 50%;
+}
+.busStationIcon{
+    opacity: 0.9;
+}
+.pulsating-img {
+  border-radius: 50%; /* opzionale: per rendere l'immagine rotonda */
+  animation: pulseBorder 2s infinite;
+}
+
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 0 0 rgba(41, 133, 225, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 25px rgba(41, 133, 225, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(41, 133, 225, 0);
+  }
+}

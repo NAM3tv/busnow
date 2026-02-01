@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusSchool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobileLandingPage.css">
+</head>
+<body>
+    <img src="/img/bus.webp" alt="" id="backgroundImg">
+    <div id="backgroundMask"></div>
+    <div class="main">
+        <header>
+            <img src="/img/busNowLogo.svg" id="logo">
+            <a href="">HOME</a>
+            <a href="">Terms & Contiditions</a>
+            <a href="" id="downloadLink">Download</a>
+        </header>
+        <div id="mainContainer">
+            <p class="landingThx"> <span id="firstRow">YOUR BUS ON REQUEST</span> <br> ONE TAP AWAY FROM YOU</p>
+            <div class="btnContainer">
+                <button id="bookARide">Book a Ride</button>
+                <button>Download</button>
+            </div>
+            <div class="secondContainer">
+                <div class="textContainer">
+                    <h1>See where your ride is</h1>
+                    <p>See in real time where your bus is and how long it will take to arrive at your stop. 
+                        Consult all available trips, updated timetables and detailed routes. 
+                        No more unnecessary waiting, you always know when to leave!
+                    </p>
+                </div>
+                <img src="/img/appUi1.png" alt="" id="img1">
+            </div>
+            <div class="secondContainer" style="margin-top: 0;">
+                <img src="/img/appUi2.png" alt="" id="img1" style="margin-left: 10%;">
+                <div class="textContainer" style="margin: 0; margin-left: 15%;">
+                    <h1>Buy the ticket on the app</h1>
+                    <p>Forget queues and cash! Buy your ticket directly from the app in seconds. 
+                        Choose your ride, pay securely, and hop on board hassle-free.
+                    </p>
+                </div>
+            </div>
+            <div class="secondContainer" style="margin-top: 2%; flex-direction: column; justify-content: center;">
+                <div class="title">
+                    <img src="/img/aiIcon.svg" alt="">
+                    <h1 style="margin-left: 3%;">AI Assistant</h1>
+                </div>
+                <div class="imgsContainer">
+                    <div class="imgContainer">
+                        <img src="/img/appUi3.png" alt="">
+                        <p class="aiTitle" style="font-size:1.6vw;">Chat with our AI</p>
+                        <p>Chat with our AI for all the use cases you have</p>
+                    </div>
+                    <div class="imgContainer">
+                        <img src="/img/appUi4.png" alt="">
+                        <p class="aiTitle" style="font-size:1.6vw;">Buy tickets from the chat</p>
+                        <p>Write in any language to request a ride</p>
+                    </div>
+                    <div class="imgContainer">
+                        <img src="/img/appUi5.png" alt="">
+                        <p class="aiTitle" style="font-size:1.6vw;">Solve your problems</p>
+                        <p>Receive assistance directly from AI for any problem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <img src="/img/busNowLogoWhieAndBlack.svg" alt="" id="footerLogoImg">
+            <div class="footerColumn footerColumn1">
+                <p class="footerSubtitle">Bus Now SRL</p>
+                <p>P.IVA</p>
+                <p>Via Bottari 10</p>
+                <p>info.busnow@gmail.com</p>
+            </div>
+            <div class="footerColumn">
+                <p class="footerSubtitle">Policies</p>
+                <a href="">Terms of Service</a>
+                <a href="">Privacy Policy</a>
+                <a href="">Cookies</a>
+            </div>
+            <div class="footerColumn socialColumn">
+                <p class="footerSubtitle">Social</p>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="/img/instagramIcon.svg" alt="">
+                    Instagram
+                </a>
+                <a href="https://www.tiktok.com/" target="_blank">
+                    <img src="/img/tiktokIcon.svg" alt="">
+                    TikTok
+                </a>
+                <a href="https://www.youtube.com/" target="_blank">
+                    <img src="/img/youtubeIcon.svg" alt="">
+                    YouTube
+                </a>
+            </div>
+        </footer>
+    </div>
+    <div class="mobileMain">
+        <div class="circleMobile">
+            <canvas id="gradient-canvas" data-transition-in></canvas>
+            <img src="/img/busNowLogoWhieAndBlack.svg" alt="" id="mobileLogo">
+            <div class="infosMobileCircle" style="margin-top: 20%; margin-left:30%;">
+                <img src="/img/positionIcon.svg" alt="">
+                <p>See position in real time</p>
+            </div>
+            <div class="infosMobileCircle" >
+                <img src="/img/recentIconWhite.svg" alt="">
+                <p>See your recent rides</p>
+            </div>
+        </div>
+            <div class="contentLp">
+                <img src="/img/futuristicBus.png" alt="" id="futuristicBus">
+                <div class="infosMobileLp" style="margin-left: 50%;">
+                    <img src="/img/aiIcon.svg" alt="">
+                    <p>Book a ride by talking with AI</p>
+                </div>
+                <div class="infosMobileLp" style="margin-left: 0%;">
+                    <img src="/img/ticketsIcon.svg" alt="">
+                    <p>Buy ticket from the app</p>
+                </div>
+                <button id="rideBtnMobile">BOOK A RIDE</button>
+            </div>
+    </div>
+
+
+
+        
+
+    <script src="main.js"></script>
+    <script src="sfondo.js"></script>
+</body>
+</html>
